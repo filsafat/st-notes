@@ -8,7 +8,7 @@
 ---
 
 ### 📱 Tentang Proyek Ini
-Ini adalah gudang dokumentasi digital untuk **ST-Notes**. Sebuah platform yang menggabungkan teknis perbaikan ponsel dengan mutiara hikmah dari komunitas Al-Barokah Serang.
+Ini adalah gudang dokumentasi digital untuk **ST-Notes**. Sebuah platform yang menggabungkan teknis perbaikan ponsel dengan mutiara hikmah dari komunitas AlBarokah Serang Banten.
 
 - ⚡ **Otomatisasi:** Terhubung langsung dengan feed blog AlBarokah via Proxy API.
 - 🎨 **Desain:** Minimalis, Dark Mode, dan Responsive.
