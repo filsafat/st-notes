@@ -15,7 +15,29 @@
 
 				<header id="header">
 						<h1>ST-Notes</h1>
-						<p>Simple Technical Documentation &nbsp;&bull;&nbsp; طيران الأحلام &nbsp;&bull;&nbsp; Serang</p>
+						<p id="kutipan-hikmah" style="font-style: italic; min-height: 3em;">
+  "Memuat pesan hikmah..."
+</p>
+
+<script>
+  // Gudang Kata-Kata Thayarul Ahlam
+  const listHikmah = [
+    "Kehidupan ini ibarat sirkuit ponsel; terkadang ada jalur yang putus, namun dengan doa dan kesabaran, Sang Pencipta akan menyambungkannya kembali menjadi aliran yang lebih indah.",
+    "Satu makhraj huruf yang benar, setapak jalan menuju surga.",
+    "Rusaknya komponen bisa diganti, rusaknya hati harus diobati dengan dzikri.",
+    "Solderan yang rapi lahir dari ketenangan jiwa dan kejujuran hati.",
+    "Jangan hanya sibuk flashing firmware, pastikan niat di hati juga selalu di-upgrade ke arah kebaikan."
+  ];
+
+  // Fungsi untuk mengambil kata secara acak
+  function tampilkanHikmah() {
+    const acak = Math.floor(Math.random() * listHikmah.length);
+    document.getElementById('kutipan-hikmah').innerText = listHikmah[acak];
+  }
+
+  // Jalankan fungsi saat halaman dibuka
+  tampilkanHikmah();
+</script>
 						<nav>
 							<ul>
 								<li><a href="#" class="icon fa-file-text-o"><span class="label">Archive</span></a></li>
