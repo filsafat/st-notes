@@ -2,7 +2,7 @@
 ### "Satu makhraj huruf yang benar, setapak jalan menuju surga."
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=3498DB&center=true&vCenter=true&width=435&lines=Mobile+Technician+Digital+Archive;Thayarul+Ahlam+Project;Integrasi+Otomatis+Al-Barokah;Gacor+Total+Bosque!+🚀" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=3498DB&center=true&vCenter=true&width=435&lines=Mobile+Technician+Digital+Archive;Thayarul+Ahlam+Project;Integrasi+Otomatis+AlBarokah;Gacor+Total+Bosque!+🚀" alt="Typing SVG" />
 </p>
 
 ---
