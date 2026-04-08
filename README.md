@@ -21,7 +21,7 @@ Ini adalah gudang dokumentasi digital untuk **ST-Notes**. Sebuah platform yang m
 
 ### 📊 Statistik Gudang Kode
 <p align="left">
-<img src="https://github-readme-stats.vercel.app/api?username=filsafat&show_icons=true&theme=transparent&hide_border=true&card_width=400" />
+<img src="https://github-readme-stats-sigma-five.vercel.app/api?username=filsafat&show_icons=true&theme=radical" width="400" />
 </p>
 
 ---
