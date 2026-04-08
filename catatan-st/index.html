@@ -32,23 +32,31 @@
         
         async function fetchBloggerFeed() {
             try {
-                const response = await fetch(`${BLOG_URL}/feeds/posts/default?alt=json&max-results=10`);
+                // Kita pakai bantuan RSS2JSON agar jalurnya lancar
+                const RSS_URL = `https://api.rss2json.com/v1/api.json?rss_url=${BLOG_URL}/feeds/posts/default`;
+                
+                const response = await fetch(RSS_URL);
                 const data = await response.json();
                 const container = document.getElementById('feed-container');
-                container.innerHTML = '';
-                container.className = '';
+                
+                if (data.status === 'ok') {
+                    container.innerHTML = '';
+                    container.className = '';
 
-                data.feed.entry.forEach(entry => {
-                    const title = entry.title.$t;
-                    const link = entry.link.find(l => l.rel === 'alternate').href;
-                    
-                    const li = document.createElement('div');
-                    li.className = 'post-item';
-                    li.innerHTML = `<a href="${link}" target="_blank">${title}</a>`;
-                    container.appendChild(li);
-                });
+                    data.items.forEach(item => {
+                        const title = item.title;
+                        const link = item.link;
+                        
+                        const li = document.createElement('div');
+                        li.className = 'post-item';
+                        li.innerHTML = `<a href="${link}" target="_blank">${title}</a>`;
+                        container.appendChild(li);
+                    });
+                } else {
+                    throw new Error('Data tidak ok');
+                }
             } catch (error) {
-                document.getElementById('feed-container').innerHTML = 'Gagal memuat catatan. Pastikan alamat blog benar.';
+                document.getElementById('feed-container').innerHTML = 'Gagal memuat catatan. Coba refresh atau cek koneksi.';
             }
         }
         fetchBloggerFeed();
