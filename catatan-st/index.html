@@ -1,36 +1,57 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Arsip Catatan ST</title>
+    <title>Arsip Otomatis ST-Notes</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <style>
         body { font-family: sans-serif; background: #2c3e50; color: white; padding: 20px; line-height: 1.6; }
         .container { max-width: 600px; margin: auto; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px; }
         h1 { border-bottom: 2px solid #3498db; padding-bottom: 10px; font-size: 1.5em; }
-        ul { list-style: none; padding: 0; }
-        li { background: #34495e; margin: 10px 0; padding: 15px; border-radius: 5px; transition: 0.3s; }
-        li:hover { background: #3498db; }
-        a { color: white; text-decoration: none; display: block; font-weight: bold; }
-        .back-btn { display: inline-block; margin-top: 20px; color: #bdc3c7; font-size: 0.9em; }
+        #feed-container { list-style: none; padding: 0; }
+        .post-item { background: #34495e; margin: 10px 0; padding: 15px; border-radius: 5px; transition: 0.3s; border-left: 5px solid #3498db; }
+        .post-item:hover { background: #3498db; transform: scale(1.02); }
+        .post-item a { color: white; text-decoration: none; display: block; font-weight: bold; }
+        .loading { text-align: center; color: #bdc3c7; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #bdc3c7; font-size: 0.9em; text-decoration: none; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📖 Arsip Catatan ST</h1>
-        <p>Kumpulan tips teknis dan mutiara hikmah.</p>
+        <h1>📖 Catatan Al-Barokah</h1>
+        <p>Artikel terbaru langsung dari meja kerja.</p>
         
-        <ul>
-            <li>
-                <a href="#">1. Cara Menjaga Kualitas Solderan (Coming Soon)</a>
-            </li>
-            <li>
-                <a href="#">2. Filosofi Jalur Sirkuit Life - Thayarul Ahlam</a>
-            </li>
-        </ul>
+        <div id="feed-container" class="loading">Sedang mengambil catatan...</div>
 
         <a href="../" class="back-btn">← Kembali ke Utama</a>
     </div>
+
+    <script>
+        // GANTI ALAMAT DI BAWAH INI DENGAN ALAMAT BLOGGER SOBAT
+        const BLOG_URL = 'https://alb4rokah.blogspot.com'; 
+        
+        async function fetchBloggerFeed() {
+            try {
+                const response = await fetch(`${BLOG_URL}/feeds/posts/default?alt=json&max-results=10`);
+                const data = await response.json();
+                const container = document.getElementById('feed-container');
+                container.innerHTML = '';
+                container.className = '';
+
+                data.feed.entry.forEach(entry => {
+                    const title = entry.title.$t;
+                    const link = entry.link.find(l => l.rel === 'alternate').href;
+                    
+                    const li = document.createElement('div');
+                    li.className = 'post-item';
+                    li.innerHTML = `<a href="${link}" target="_blank">${title}</a>`;
+                    container.appendChild(li);
+                });
+            } catch (error) {
+                document.getElementById('feed-container').innerHTML = 'Gagal memuat catatan. Pastikan alamat blog benar.';
+            }
+        }
+        fetchBloggerFeed();
+    </script>
 </body>
 </html>
